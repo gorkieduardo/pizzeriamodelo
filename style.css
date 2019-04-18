@@ -1,0 +1,901 @@
+/*
+Theme Name: Pizzeria
+Theme URI:
+Author: Eduardo Estrada M.
+Author URI:
+Description: Theme para sitio web de restaurants o pizzas
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: restaurant, mobile first, responsive, pizza
+Text Domain: lapizzeria
+*/
+
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+  }
+  h1 {
+    font-size: 48px;
+  }
+  h2 {
+    font-size: 40px;
+  }
+  h3 {
+    font-size: 28px;
+  }
+  h4 {
+    font-size: 24px;
+  }
+  .button,
+  div.comentarios form input[type='submit'] {
+    background-color: #a61206;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    width: auto;
+    border-radius: 8px;
+    color: #ffffff;
+    padding: 15px 80px;
+    margin-top: 20px;
+    display: inline-block;
+    text-decoration: none;
+    transition: background-color .5s ease;
+    cursor: pointer;
+  }
+  .button.rojo {
+    background-color: #a61206;
+  }
+  .rojo {
+    color: #a61206;
+  }
+  .button.naranja {
+    background-color: #f19f30;
+  }
+  .button.naranja:hover {
+    background-color: #a61206;
+  }
+  .button:hover {
+    background-color: #f19f30;
+  }
+  
+  .clear,
+  .clear::after {
+    content:'';
+    clear: both;
+    display: block;
+  }
+  .texto-rojo {
+    color:#a61206;
+  }
+  .texto-centrado {
+    text-align: center;
+  }
+  .contenedor {
+    max-width: 1100px;
+    width: 100%;
+    margin:0 auto;
+  }
+  
+  img{
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /** ENCABEZADO **/
+  header.encabezado-sitio {
+    border-bottom: 1px solid #c1c1c1;
+    padding-bottom: 30px;
+  }
+  div.logo {
+    text-align: center;
+  }
+  img.logotipo {
+    width: 250px;
+  }
+  @media only screen and (min-width:768px) {
+    div.logo {
+      text-align: left;
+    }
+  }
+  
+  @media only screen and (min-width:992px) {
+    div.logo {
+      text-align: center;
+    }
+  }
+  
+  @media only screen and (min-width:768px) {
+    header.encabezado-sitio .contenedor {
+      position: relative;
+    }
+    .informacion-encabezado {
+      position: absolute;
+      top:0;
+      right:0;
+    }
+  
+  }
+  div.direccion {
+    display: block;
+    clear: both;
+    padding-top: 10px;
+  }
+  div.direccion p {
+    margin:0;
+    font-size: 14px;
+    text-align: center;
+  }
+  @media only screen and (min-width:768px){
+    div.direccion p {
+      text-align: right;
+    }
+  }
+  /*** MENU REDES SOCIALES **/
+  
+  
+  nav.sociales ul {
+    text-align: center;
+    list-style: none;
+    padding:0;
+  }
+  
+  @media only screen and (min-width:768px) {
+      nav.sociales ul {
+        float: right;
+      }
+  }
+  .sr-text,
+  .screen-reader-text {
+    display: none;
+  }
+  
+  nav.sociales ul li {
+    position: relative;
+    display: inline-block;
+  }
+  
+  nav.sociales ul li a:before {
+    font-family: 'FontAwesome';
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 5px;
+    content: '\f08e';
+    font-size: 30px;
+    color: #000000;
+    -webkit-font-smoothing:antialiased;
+  }
+  
+  nav.sociales li a[href*="facebook.com"]::before {
+    content: '\f09a';
+  }
+  nav.sociales li a[href*="twitter.com"]::before {
+    content: '\f099';
+  }
+  nav.sociales li a[href*="pinterest.com"]::before {
+    content: '\f231';
+  }
+  nav.sociales li a[href*="youtube.com"]::before {
+    content: '\f16a';
+  }
+  nav.sociales li a[href*="instagram.com"]::before {
+    content: '\f16d';
+  }
+  /** NAVEGACION PRINCIPAL**/
+  nav.menu-sitio {
+    display: none;
+  }
+  @media only screen and (min-width:768px) {
+    nav.menu-sitio {
+      display: block;
+    }
+  }
+  nav.menu-sitio ul {
+    list-style: none;
+    display: table;
+    margin:0;
+    padding:0;
+    width: 100%;
+  }
+  nav.menu-sitio ul li a {
+    text-align: center;
+    padding: 20px 0;
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000000;
+  }
+  nav.menu-sitio ul li.current_page_item a,
+  nav.menu-sitio ul li.current_page_parent a {
+    border-bottom: 8px solid #a61206;
+  }
+  nav.menu-sitio ul li:hover {
+    background-color: #f19f30;
+  }
+  @media only screen and (min-width:768px) {
+    nav.menu-sitio ul li {
+      display: table-cell;
+      width: 1%;
+    }
+  }
+  
+  /** RESPONSIVE MENU **/
+  
+  @media only screen and (max-width:767px) {
+    .mobile-menu a {
+      height: 40px;
+      background-color: #a61206;
+      width: 100%;
+      color: white!important;
+      display: block;
+      text-align: center;
+      line-height: 40px;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 20px;
+    }
+  }
+  @media only screen and (min-width:768px) {
+    .mobile-menu a {
+        display:none;
+    }
+  }
+  
+  /** Templates Contenido **/
+  
+  div.hero{
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 450px;
+    text-align: center;
+    margin:0 auto;
+    display: table;
+    position: relative;
+  }
+  
+  div.hero::after {
+    position: absolute;
+    top:0;
+    left:0;
+    content:'';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.6);
+  
+  }
+  div.hero .contenido-hero {
+    display: table-cell;
+    vertical-align: middle;
+    color: #ffffff;
+    position: relative;
+    width: 100vw;
+    z-index: 2;
+  }
+  @media only screen and (min-width:768px) {
+    div.texto-hero {
+      width: 80%;
+      margin:0 auto;
+    }
+  }
+  @media only screen and (min-width:992px) {
+    div.texto-hero {
+      width: 60%;
+    }
+  }
+  
+  
+  div.principal {
+    padding: 60px;
+    background-color: #ffffff;
+    position: relative;
+  }
+  @media only screen and (min-width:768px) {
+      div.principal {
+          margin-top: -90px;
+      }
+  }
+  .contenido-paginas p {
+      font-size: 18px;
+      line-height: 50px;
+  }
+  
+  
+  /** FOOTER **/
+  footer {
+    margin-top: 30px;
+    padding:30px 0;
+    border-top: 1px solid #c1c1c1;
+    text-align: center;
+  }
+  
+  footer nav ul {
+    list-style: none;
+  }
+  
+  footer nav ul li{
+      display: inline;
+  }
+  footer nav ul li:last-child .separador {
+    display: none;
+  }
+  footer nav ul li a {
+    color: #000000;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+  }
+  footer .ubicacion {
+    margin-top: 30px;
+  }
+  footer p {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+  }
+  footer p.copyright {
+    margin-top: 20px;
+  }
+  
+  
+  /** CAJAS **/
+  .informacion-cajas {
+    display: grid;
+  }
+  
+  @media screen and (min-width:768px) {
+    .informacion-cajas {
+      /* can use */
+      grid-template-columns: 1fr, 1fr, 1fr;
+      /* or */
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .informacion-cajas .caja {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    text-align: center;
+    color:white;
+  }
+  @media screen and (min-width:768px) {
+    .informacion-cajas .caja {
+      grid-template-columns:unset;
+      grid-template-rows: 1fr 1fr;
+    }
+  }
+  .informacion-cajas .caja:nth-child(1) {
+    background-color:#f19f30;
+  }
+  .informacion-cajas .caja:nth-child(2) {
+    background-color:#127427;
+  }
+  .informacion-cajas .caja:nth-child(3) {
+    background-color:#a61206;
+  }
+  @media screen and (min-width:768px) {
+    .informacion-cajas .caja:nth-child(2) img{
+      order: 2;
+    }
+    .informacion-cajas .caja:nth-child(2) > div{
+      order: 1;
+    }
+  }
+  .contenido-caja {
+    display: grid;
+    grid-template-rows: 5% 30% 60% 5%;
+    grid-template-areas: "."
+                         "top"
+                         "text"
+                         ".";
+  }
+  @media screen and (min-width:768px) {
+    .contenido-caja {
+      grid-template-rows: 20% 30% 30% 20%;
+    }
+  }
+  .contenido-caja > * {
+    align-self: center;
+  }
+  .contenido-caja h3 {
+    margin: 5px 0;
+    grid-area: top;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .contenido-caja p {
+    grid-area: text;
+  }
+  /** ESPECIALIDADES **/
+  .nuestras-especialidades {
+    padding: 0 60px;
+  }
+  div.texto-especialidad {
+    padding:20px;
+  }
+  div.texto-especialidad h4 {
+    border-bottom:1px solid #dfdfdd;
+    padding-bottom: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin:0;
+  }
+  div.texto-especialidad h4 span {
+    float: right;
+    font-size: 30px;
+    color: #f19f30;
+    font-family: 'Open Sans', sans-serif;
+  }
+  div.texto-especialidad p {
+    color: #3d3d3d;
+    line-height: 30px;
+  }
+  
+  
+  /** GRID **/
+  
+  @media only screen and (min-width:768px) {
+      .contenedor-grid {
+        margin-left: -10px;
+        margin-right: -10px;
+      }
+      .contenedor-grid::after {
+        content:'';
+        display: block;
+        clear: both;
+      }
+      [class*="columnas"] {
+        padding: 0 10px;
+        float: left;
+      }
+      .columnas1-4 {
+        width: 25%;
+      }
+      .columnas2-4 {
+        width: 50%;
+      }
+      .columnas3-4 {
+        width: 75%;
+      }
+      .columnas1-3 {
+        width: 33.3%;
+      }
+      .columnas2-3 {
+        width: 66.6%;
+      }
+  }
+  article.entrada-blog img{
+    margin-top: 30px;
+   }
+   header.informacion-entrada{
+    margin-top:20px;
+   }
+   header.informacion-entrada div.fecha{
+    background-color: #f19f30;
+    float: left;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    padding-top: 5px;
+    margin-right: 20px;
+   }
+   header.informacion-entrada div.fecha time{
+    font-size: 30px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+   }
+   header.informacion-entrada div.fecha time span{
+    font-size: 16px;
+    display: block;
+    clear: both;
+    text-transform: uppercase;
+   }
+   header.informacion-entrada .titulo-entrada {
+    float: right;
+    width: calc(100% - 90px); 
+   }
+   header.informacion-entrada h2{
+    margin:0;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 700;
+   }
+   header.informacion-entrada p.autor{
+    text-transform: uppercase;
+    color: #505050;
+    margin-top:10px;
+    font-family: 'Raleway', sans-serif;
+   }
+   p.autor i{
+    font-size: 30px;
+    color: #f19f30;
+   }
+   div.contenido-entrada p{
+    margin-bottom: 0;
+    line-height: 24px;
+   }
+  
+  div.contenido-entrada p{
+    margin-bottom: 0;
+    line-height: 24px;
+  }
+  ul.lista-comentarios,
+  ul.lista-comentarios ul {
+    list-style: none;
+  }
+  ul.lista-comentarios li.comment {
+    background-color: #e1e1e1;
+    padding:20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+  }
+  ul.lista-comentarios li.comment cite {
+    color: #a61206;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  ul.lista-comentarios li.comment .comment-author {
+    margin-bottom: 20px;
+  }
+  ul.lista-comentarios li.comment a {
+    color: #a61206;
+    text-decoration: none;
+  }
+  ul.lista-comentarios li.comment ul.children li{
+    background-color: white;
+    margin-top: 20px;
+  }
+  
+  .paginacion {
+      margin-top: 20px;
+      background-color: #e1e1e1;
+      padding: 20px;
+      display: inline-block;
+      border-radius: 20px;
+  }
+  .paginacion a{
+    color: #a61206;
+    text-decoration: none;
+  }
+  .paginacion a:hover {
+    text-decoration: underline;
+  }
+  .paginacion .current {
+    font-weight: bold;
+    color: #555;
+  }
+  .paginacion .anteriores,
+  .paginacion .siguientes {
+      float: left;
+  }
+  .paginacion .anteriores {
+    margin-right: 20px;
+  }
+  
+  /** SIDEBAR**/
+  aside.sidebar {
+    margin-top: 3px;
+  }
+  
+  form.searchform {
+    position: relative;
+  }
+  form.searchform #searchsubmit {
+    position: absolute;
+    top:0;
+    right: 0;
+    width: 42px;
+    height: 42px;
+    background-color: #a61206;
+    text-indent: -9999px;
+    background-image: url(img/buscador.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    border:none;
+    cursor: pointer;
+  }
+  form.searchform  input {
+    width: 100%;
+    padding: 10px;
+  }
+  
+  aside .widget {
+    margin-bottom: 20px;
+  }
+  aside .widget h3 {
+    font-weight: 700;
+    font-size: 24px;
+    text-transform: uppercase;
+  }
+  aside .widget ul {
+    list-style: none;
+  }
+  aside .widget ul li {
+    margin-bottom: 20px;
+  }
+  aside .widget ul li a {
+    color: #000000;
+    text-decoration: none;
+  }
+  aside .widget ul li a:hover {
+    color: #f19f30;
+  }
+  /** COMENTARIOS **/
+  
+  div.comentarios h3 {
+    font-weight: 700;
+    text-align: center;
+  }
+  @media only screen and (min-width:992px) {
+    div.comentarios {
+      width: 60%;
+    }
+  }
+  div.comentarios form label {
+    width: 200px;
+    display: inline-block;
+    text-align: right;
+    padding-right: 20px;
+    font-weight: bold;
+  }
+  div.comentarios form input,
+  div.comentarios form textarea {
+    padding: 10px;
+    width: calc(100% - 220px);
+  }
+  div.comentarios form input[type='submit'] {
+    margin:0 auto;
+    display: block;
+    border: none;
+  }
+  p.logged-in-as a {
+    color: #a61206;
+  }
+  
+  /** GALERIA **/
+  div#gallery-1 .gallery-item {
+    width: 50%;
+    margin:0;
+  }
+  @media only screen and (min-width:768px) {
+    div#gallery-1 .gallery-item {
+      width: 25%;
+    }
+  }
+  div#gallery-1 .gallery-item .gallery-icon {
+    padding:5px;
+  }
+  
+  div#gallery-1 img {
+    border:none;
+  }
+  
+  /** CONTACTO **/
+  div.contacto {
+    background-image: url(img/contacto_bg.jpg);
+    background-repeat: no-repeat;
+    background-position: top left;
+  }
+  @media only screen and (min-width:768px) {
+    form.reserva-contacto {
+        margin-left: 50%;
+    }
+  }
+  form.reserva-contacto h2 {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  form.reserva-contacto .campo {
+    margin-bottom: 20px;
+    width: 100%;
+    position: relative;
+  }
+  
+  form.reserva-contacto .campo input,
+  form.reserva-contacto .campo textarea {
+      width: 100%;
+      border: 3px solid #000000;
+      padding: 15px 10px;
+  }
+  form.reserva-contacto .campo textarea {
+    height: 200px;
+  }
+  form.reserva-contacto ::-webkit-input-placeholder {
+    color: #000000!important;
+  }
+  form.reserva-contacto :moz-placeholder {
+    color: #000000!important;
+  }
+  form.reserva-contacto ::moz-placeholder {
+    color: #000000!important;
+  }
+  form.reserva-contacto ::-ms-input-placeholder {
+    color: #000000!important;
+  }
+  
+  form.reserva-contacto input[type="submit"] {
+    border: none;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  /** FRONT PAGE **/
+  .home div.hero {
+    height: 650px;
+  }
+  .home div.hero h1 {
+    margin-top: 0;
+  }
+  .home .texto-hero p {
+    line-height: 40px;
+    font-size: 18px;
+  }
+  @media only screen and (min-width:768px) {
+    .home .texto-hero{
+        max-width: 680px;
+    }
+  }
+  
+  div.contenido-especialidad {
+    position: relative;
+    overflow: hidden;
+    display: table;
+  }
+  div.informacion-platillo {
+    position: absolute;
+    top:100%;
+    left:0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(241, 159,48, .75);
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    color: #ffffff;
+    padding:5px;
+    transition: all .5s ease-in-out;
+    opacity:0;
+  }
+  div.informacion-platillo .precio {
+    font-size: 60px;
+    font-weight: bold;
+  }
+  div.informacion-platillo h3 {
+    font-size: 30px;
+    margin-top: 40px;
+    font-weight: 700;
+  }
+  div.informacion-platillo p {
+    margin: 0 0 10px 0;
+  }
+  @media only screen and (max-width: 767px) {
+      div.contenido-especialidad  {
+          overflow: visible;
+          display: block;
+          margin-bottom: 30px;
+      }
+      div.contenido-especialidad  img {
+        width: 100%;
+      }
+      div.informacion-platillo{
+        position: relative;
+        opacity:1;
+        background-color: #f19f30;
+        padding: 30px;
+      }
+  }
+  div.contenido-especialidad:hover div.informacion-platillo {
+    top:0;
+    opacity:1;
+  }
+  
+  /* INGREDIENTES */
+  section.ingredientes {
+    background-image: url(img/bg-ingredientes.jpg);
+    margin-top: 50px;
+    padding: 80px 0;
+    color: #ffffff;
+  }
+  section.ingredientes h3 {
+    line-height: 60px;
+    font-size: 40px;
+    font-weight: 700;
+  }
+  section.ingredientes p {
+    line-height: 40px;
+    font-size: 20px;
+  }
+  section.ingredientes div.imagen {
+    padding-top: 30px;
+    text-align: center;
+    margin:0 auto;
+  }
+  section.ingredientes div.imagen img {
+    width: 80%;
+  }
+  
+  /*** UBICACION Y RESERVACION**/
+  
+  section.ubicacion-reservacion {
+    background-image: url(img/bg-ingredientes.jpg);
+    margin-top: 50px;
+  }
+  .home form.reserva-contacto {
+    margin:0;
+    padding:50px;
+  }
+  .home form.reserva-contacto h2 {
+    color: #ffffff;
+    font-size: 34px;
+    text-align: center;
+  }
+  .home form.reserva-contacto input,
+  .home form.reserva-contacto textarea {
+    background-color: transparent;
+    border:4px solid #ffffff;
+    color: #ffffff;
+  }
+  .home form.reserva-contacto ::-webkit-input-placeholder {
+    color: #ffffff!important;
+  }
+  .home form.reserva-contacto :moz-placeholder {
+    color: #ffffff!important;
+  }
+  .home form.reserva-contacto ::moz-placeholder {
+    color: #ffffff!important;
+  }
+  .home form.reserva-contacto :-ms-input-placeholder {
+    color: #ffffff!important;
+  }
+   input[type="datetime-local"]{
+    color: #ffffff!important;
+  }
+  
+  .home form.reserva-contacto input[type="submit"] {
+    border: none;
+    width: auto;
+    background-color: #a61206;
+    display: inline;
+  }
+  
+  #mapa {
+    height: 100%;
+  }
+  
+  .fixed-top {
+      position: fixed;
+      top:0;
+      z-index: 10;
+      width:100%;
+      background-color: white;
+  }
+  
+  /** SUBMENU**/
+  
+  @media only screen and (min-width:992px) {
+      .menu-sitio li {
+          position:relative;
+      }
+      .menu-sitio li .sub-menu {
+          display:none;
+      }
+      .menu-sitio li:hover .sub-menu {
+          display: block;
+          position: absolute;
+          top:100%;
+          left:0;
+          z-index: 100;
+          background-color: white;
+      }
+  }
+  
